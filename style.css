@@ -1,0 +1,251 @@
+:root {
+  --primary-bg: #f4f4f4;
+  --text-color: #333;
+  --card-bg: #ffffff;
+  --accent-color: #00adb5;
+}
+
+body.dark-mode {
+  --primary-bg: #1e1e1e;
+  --text-color: #eee;
+  --card-bg: #2a2a2a;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--primary-bg);
+  color: var(--text-color);
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+header {
+  background: linear-gradient(270deg, #333 );
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease inifinite;
+  color: white;
+  padding: 3rem 1rem;
+  text-align: center;
+  position: relative;
+}
+
+
+@keyframes gradientBG {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+.hero-content {
+  max-width: 600px;
+  margin: auto;
+}
+
+.profile-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto 1rem auto;
+  border: 3px solid #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#typing-text {
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+#cursor {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: var(--accent-color);
+  margin-left: 5px;
+  animation: blink 0.7s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+nav {
+  background: #444;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+nav a:hover {
+  background-color: #666;
+}
+
+section {
+  background: var(--card-bg);
+  color: var(--text-color);
+  border-radius: 8px;
+  padding: 2rem;
+  margin: 1.5rem auto;
+  max-width: 800px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+#skills ul li {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease forwards;
+  animation-delay: 0.3s;
+}
+
+#skills ul li:nth-child(2) { animation-delay: 0.4s; }
+#skills ul li:nth-child(3) { animation-delay: 0.5s; }
+#skills ul li:nth-child(4) { animation-delay: 0.6s; }
+#skills ul li:nth-child(5) { animation-delay: 0.7s; }
+#skills ul li:nth-child(6) { animation-delay: 0.8s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.social-icons a {
+  color: inherit;
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+}
+
+#theme-toggle {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #fff;
+  color: #333;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+#theme-toggle:hover {
+  background-color: #eee;
+}
+
+/* Dark mode styles */
+body.dark-mode header {
+  background-color: #111;
+  color: #fff;
+}
+
+body.dark-mode nav {
+  background-color: #222;
+}
+
+body.dark-mode nav a {
+  color: #eee;
+}
+
+body.dark-mode footer {
+  background-color: #111;
+  color: #ccc;
+}
+
+body.dark-mode #theme-toggle {
+  background-color: #555;
+  color: #fff;
+  border: 1px solid #999;
+}
+
+footer {
+  background-color: #222;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav a {
+    width: 100%;
+    text-align: center;
+  }
+
+  .profile-img {
+    width: 100px;
+    height: 100px;
+  }
+
+  section {
+    padding: 1rem 1rem;
+    text-align: center;
+  }
+
+  .social-icons {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}
+
+#cursor {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #00adb5;
+  margin-left: 5px;
+  animation: blink 0.8s infinite steps(1, start);
+}
+
+.fade-in {
+  animation: fadeiInPhrase 0.6s ease-in-out;
+}
+
+@keyframes fadeInPhrase {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
