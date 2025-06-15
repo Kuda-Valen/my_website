@@ -47,23 +47,4 @@ function typePhrase() {
 
 typePhrase();
 
-const hamburger = document.getElementById('hamburger');
-const navlinks = document.getElementById('nav-links');
 
-hamburger.addEventListener('click', () => {
-  navlinks.classList.toggle('show');
-});
-
-// Toggle hamburger menu
-function myFunction() {
-  var x = document.getElementById("myLinks");
-  if (x.style.display === "block") {
-    x.style.display = "none";
-  } else {
-    x.style.display = "block";
-  }
-}
-
-function myFunction() {
-  document.getElementById("myLinks").classList.toggle("show");
-}
