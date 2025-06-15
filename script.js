@@ -10,7 +10,8 @@ const phrases = [
   "Web Developer",
   "Robotics Explorer",
   "Lifelong Learner",
-  "Python Enthusiast"
+  "Python Enthusias",
+  "Mathematics Lover"
 ];
 
 let phraseIndex = 0;
