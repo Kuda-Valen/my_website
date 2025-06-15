@@ -324,3 +324,53 @@ section p, sectin li {
   font-size: 0.95rem;
   line-height: 1.6;
 }
+
+/* Hides hamburger on desktop*/
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: white;
+  cursor: pointer;
+}
+
+/* Nav link container*/
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* Nav link style */
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.nav-link a:hover {
+  background-color: #666;
+}
+
+/* Mobile hamburger logix */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-link {
+    display: none;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    text-align: center;
+  }
+
+  .nav-links.show{
+    display: flex;
+  }
+}
