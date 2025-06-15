@@ -428,3 +428,12 @@ section p, sectin li {
     display: flex;
   }
 }
+
+#myLinks {
+  display: none;
+  transition: all 0.3s ease;
+}
+
+#myLinks.show {
+  display: block;
+}

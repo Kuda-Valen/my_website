@@ -54,7 +54,16 @@ hamburger.addEventListener('click', () => {
   navlinks.classList.toggle('show');
 });
 
-function toggleMenu() {
-  const topNav = document.querySelector(".topnav");
-  topNav.classList.toggle("responsive");
+// Toggle hamburger menu
+function myFunction() {
+  var x = document.getElementById("myLinks");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+
+function myFunction() {
+  document.getElementById("myLinks").classList.toggle("show");
 }
