@@ -10,7 +10,7 @@ const phrases = [
   "Web Developer",
   "Robotics Explorer",
   "Lifelong Learner",
-  "Python Enthusias",
+  "Python Enthusiast",
   "Mathematics Lover"
 ];
 

@@ -202,15 +202,15 @@ footer {
   }
 
   nav {
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    overflow-x: auto;
     justify-content: center;
-    gap: 0.5rem;
   }
 
   nav a {
-    padding: 0.5rem;
-    font-size: 0.95rem;
-    flex: none;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+    white-space: nowrap;
   }
 
   .profile-img {
@@ -230,7 +230,7 @@ footer {
     gap: 1rem;
   }
   .social-icons a {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
   }
 }
 
@@ -259,7 +259,7 @@ footer {
 
 @media (max-width: 600px) {
   header h1 {
-    font-size: 1.7rem;
+    font-size: 1.5rem;
   }
 
   header h2 {
@@ -313,4 +313,14 @@ footer {
 
 .social-icons a {
   font-size: 1.8rem;
+}
+
+section h2 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75;
+}
+
+section p, sectin li {
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
