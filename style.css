@@ -374,3 +374,57 @@ section p, sectin li {
     display: flex;
   }
 }
+
+/* NAVIGATION BAR */
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+  position: relative;
+}
+
+.topnav a {
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 17px;
+}
+
+.topnav .logo {
+  font-weight: bold;
+}
+
+.topnav .icon {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: none;
+}
+
+#navLinks {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 600px) {
+  #navLinks {
+    display: none;
+    flex-direction: column;
+    background-color: #333;
+    position: absolute;
+    width: 100%;
+    top: 48px;
+    left: 0;
+    z-index: 1;
+  }
+
+  .topnav a.icon {
+    display: block;
+  }
+
+  .topnav.responsive #navLinks {
+    display: flex;
+  }
+}

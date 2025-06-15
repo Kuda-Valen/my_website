@@ -53,3 +53,8 @@ const navlinks = document.getElementById('nav-links');
 hamburger.addEventListener('click', () => {
   navlinks.classList.toggle('show');
 });
+
+function toggleMenu() {
+  const topNav = document.querySelector(".topnav");
+  topNav.classList.toggle("responsive");
+}
