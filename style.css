@@ -249,3 +249,61 @@ footer {
     transform: translateY(0);
   }
 }
+
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.7rem;
+  }
+
+  header h2 {
+    font-size: 1.2rem;
+  }
+
+  #typing-text, #cursor {
+    font-size: 1.1rem;
+  }
+
+  .profile-img {
+    width: 100px;
+    height: 100px;
+  }
+
+  nav{
+    flex-direction: column;
+    gap: 0.5 rem;
+  }
+
+  nav a {
+    width: 100%;
+    text-align: center;
+    padding: 0.7rem 0;
+  }
+
+  section {
+    padding: 1.5rem 1rem;
+    margin: 1rem 0.5rem;
+  }
+
+  ul {
+    padding-left: 0;
+  }
+
+  ul li {
+    text-align: left;
+    padding-left: 0.5rem;
+  }
+  .social-icons {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+}
+
+#theme-toggle {
+  font-size: 1rem;
+  padding: 0.6rem 1.2rem;
+}
+
+.social-icons a {
+  font-size: 1.8rem;
+}
