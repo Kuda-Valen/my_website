@@ -1,6 +1,21 @@
 document.getElementById('theme-toggle').addEventListener('click', function () {
   document.body.classList.toggle('dark-mode');
+
+  // Optional: Save theme preference to local storage
+  if (document.body.classList.contains('dark-mode')) {
+    localStorage.setItem('theme', 'dark');
+  } else {
+    localStorage.setItem('theme', 'light');
+  }
 });
+
+// Optional: Apply theme on page load based on local storage
+document.addEventListener('DOMContentLoaded', () => {
+  if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark-mode');
+  }
+});
+
 
 const typingText = document.getElementById("typing-text");
 const cursor = document.getElementById("cursor");
@@ -27,8 +42,8 @@ function typePhrase() {
     if (charIndex === currentPhrase.length) {
       setTimeout(() => {
         isDeleting = true;
-        typePhrase(); // Call again after delay
-      }, 2000); // Pause on full word
+        typePhrase();
+      }, 2000);
       return;
     }
   } else {
@@ -37,14 +52,12 @@ function typePhrase() {
     if (charIndex === 0) {
       isDeleting = false;
       phraseIndex = (phraseIndex + 1) % phrases.length;
-      setTimeout(typePhrase, 500); // Pause before typing new word
+      setTimeout(typePhrase, 500);
       return;
     }
   }
 
-  setTimeout(typePhrase, isDeleting ? 80 : 120); // Smoother typing/deleting
+  setTimeout(typePhrase, isDeleting ? 80 : 120);
 }
 
 typePhrase();
-
-

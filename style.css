@@ -9,6 +9,7 @@ body.dark-mode {
   --primary-bg: #1e1e1e;
   --text-color: #eee;
   --card-bg: #2a2a2a;
+  --accent-color: #00e0ed; /* Slightly brighter for dark mode */
 }
 
 * {
@@ -22,22 +23,21 @@ html {
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Arial', sans-serif;
   background-color: var(--primary-bg);
   color: var(--text-color);
   transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 header {
-  background: linear-gradient(270deg, #333 );
+  background: linear-gradient(270deg, #333, #555);
   background-size: 400% 400%;
-  animation: gradientBG 15s ease inifinite;
+  animation: gradientBG 15s ease infinite;
   color: white;
   padding: 3rem 1rem;
   text-align: center;
   position: relative;
 }
-
 
 @keyframes gradientBG {
   0% {background-position: 0% 50%;}
@@ -58,6 +58,7 @@ header {
   margin: 0 auto 1rem auto;
   border: 3px solid #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  object-fit: cover;
 }
 
 #typing-text {
@@ -78,16 +79,25 @@ header {
   50% { opacity: 0; }
 }
 
-nav {
+/* Top Navigation Bar Styling - MODIFIED HERE */
+.topnav {
   background: #444;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
+  justify-content: center; /* Center the navLinks div */
+  align-items: center;
   padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  /* Removed flex-wrap: wrap; as it's not needed for this simple horizontal layout */
 }
 
-nav a {
+/* Removed .topnav .logo styling as the element is gone */
+
+.topnav #navLinks {
+  display: flex; /* Ensures links are horizontal */
+  gap: 1rem; /* Space between links */
+}
+
+.topnav #navLinks a {
   color: white;
   text-decoration: none;
   padding: 0.5rem 1rem;
@@ -95,7 +105,7 @@ nav a {
   transition: background 0.3s ease;
 }
 
-nav a:hover {
+.topnav #navLinks a:hover {
   background-color: #666;
 }
 
@@ -110,18 +120,50 @@ section {
   transition: background-color 0.4s ease, color 0.4s ease;
 }
 
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--accent-color);
+  text-align: center;
+}
+
+section p, section li {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 0.8rem;
+}
+
+section ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+section ul li {
+  margin-bottom: 0.5rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+section ul li::before {
+  content: '👉';
+  position: absolute;
+  left: 0;
+  color: var(--accent-color);
+}
+
+/* Skills Section Animations */
 #skills ul li {
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 0.6s ease forwards;
-  animation-delay: 0.3s;
 }
 
-#skills ul li:nth-child(2) { animation-delay: 0.4s; }
-#skills ul li:nth-child(3) { animation-delay: 0.5s; }
-#skills ul li:nth-child(4) { animation-delay: 0.6s; }
-#skills ul li:nth-child(5) { animation-delay: 0.7s; }
-#skills ul li:nth-child(6) { animation-delay: 0.8s; }
+#skills ul li:nth-child(1) { animation-delay: 0.2s; }
+#skills ul li:nth-child(2) { animation-delay: 0.3s; }
+#skills ul li:nth-child(3) { animation-delay: 0.4s; }
+#skills ul li:nth-child(4) { animation-delay: 0.5s; }
+#skills ul li:nth-child(5) { animation-delay: 0.6s; }
+#skills ul li:nth-child(6) { animation-delay: 0.7s; }
 
 @keyframes fadeInUp {
   to {
@@ -133,48 +175,60 @@ section {
 .social-icons {
   display: flex;
   justify-content: center;
-  gap: 1rem;
-  margin-top: 1rem;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
 }
 
 .social-icons a {
-  color: inherit;
-  font-size: 1.5rem;
-  transition: transform 0.3s ease;
+  color: var(--accent-color);
+  font-size: 2rem;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .social-icons a:hover {
   transform: scale(1.2);
+  color: #008f95;
 }
 
+body.dark-mode .social-icons a:hover {
+  color: #00d0d8;
+}
+
+
 #theme-toggle {
-  margin-top: 1rem;
-  padding: 0.5rem 1rem;
+  margin-top: 1.5rem;
+  padding: 0.7rem 1.4rem;
   background-color: #fff;
   color: #333;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
-  transition: background 0.3s ease;
+  font-size: 1rem;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
 }
 
 #theme-toggle:hover {
   background-color: #eee;
+  transform: translateY(-2px);
 }
 
-/* Dark mode styles */
+/* Dark mode specific styles */
 body.dark-mode header {
-  background-color: #111;
+  background: linear-gradient(270deg, #111, #333);
   color: #fff;
 }
 
-body.dark-mode nav {
+body.dark-mode .topnav {
   background-color: #222;
 }
 
-body.dark-mode nav a {
+body.dark-mode .topnav #navLinks a {
   color: #eee;
+}
+
+body.dark-mode .topnav #navLinks a:hover {
+  background-color: #444;
 }
 
 body.dark-mode footer {
@@ -185,7 +239,11 @@ body.dark-mode footer {
 body.dark-mode #theme-toggle {
   background-color: #555;
   color: #fff;
-  border: 1px solid #999;
+  border: 1px solid #777;
+}
+
+body.dark-mode #theme-toggle:hover {
+  background-color: #666;
 }
 
 footer {
@@ -193,134 +251,81 @@ footer {
   color: white;
   text-align: center;
   padding: 1rem;
+  margin-top: 2rem;
 }
 
 /* Responsive Design */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+  header {
+    padding: 2rem 1rem;
+  }
+
   header h1 {
-    font-size: 1.5rem;
-  }
-
-  nav {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    justify-content: center;
-  }
-
-  nav a {
-    padding: 0.5rem 0.75rem;
-    font-size: 0.9rem;
-    white-space: nowrap;
-  }
-
-  .profile-img {
-    width: 100px;
-    height: 100px;
-  }
-
-  section {
-    padding: 1rem;
-    text-align: center;
-  }
-
-  .social-icons {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-  }
-  .social-icons a {
-    font-size: 1.4rem;
-  }
-}
-
-#cursor {
-  font-weight: bold;
-  font-size: 1.5rem;
-  color: #00adb5;
-  margin-left: 5px;
-  animation: blink 0.8s infinite steps(1, start);
-}
-
-.fade-in {
-  animation: fadeiInPhrase 0.6s ease-in-out;
-}
-
-@keyframes fadeInPhrase {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@media (max-width: 600px) {
-  header h1 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
 
   header h2 {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
 
   #typing-text, #cursor {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
 
   .profile-img {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
   }
 
-  nav{
-    flex-direction: column;
-    gap: 0.5 rem;
+  /* MODIFIED FOR SMALL SCREENS */
+  .topnav {
+    /* Revert to single row and centered for small screens too if desired,
+       or keep column for stacking. Given the screenshot, a simple
+       horizontal (potentially wrapping) is desired for the requested look. */
+    flex-direction: row; /* Ensure row direction */
+    flex-wrap: wrap; /* Allow links to wrap if space is tight */
+    justify-content: center; /* Center items */
+    align-items: center; /* Vertically align */
+    padding: 1rem; /* Consistent padding */
   }
 
-  nav a {
-    width: 100%;
+  .topnav #navLinks {
+    flex-direction: row; /* Links remain in a row */
+    width: auto; /* Width adjusts to content */
+    gap: 0.7rem; /* Slightly reduced gap for small screens */
+  }
+
+  .topnav #navLinks a {
+    width: auto; /* Adjust to content width */
     text-align: center;
-    padding: 0.7rem 0;
+    padding: 0.5rem 0.7rem; /* Smaller padding */
+    border-top: none; /* Remove border from previous column layout */
   }
 
   section {
     padding: 1.5rem 1rem;
-    margin: 1rem 0.5rem;
+    margin: 1rem 0.8rem;
   }
 
-  ul {
-    padding-left: 0;
+  section h2 {
+    font-size: 1.75rem;
+    margin-bottom: 0.8rem;
   }
 
-  ul li {
-    text-align: left;
-    padding-left: 0.5rem;
+  section p, section li {
+    font-size: 0.95rem;
   }
+
   .social-icons {
-    flex-direction: row;
-    flex-wrap: wrap;
     gap: 1rem;
   }
-}
 
-#theme-toggle {
-  font-size: 1rem;
-  padding: 0.6rem 1.2rem;
-}
+  .social-icons a {
+    font-size: 1.8rem;
+  }
 
-.social-icons a {
-  font-size: 1.8rem;
-}
-
-section h2 {
-  font-size: 1.25rem;
-  margin-bottom: 0.75;
-}
-
-section p, sectin li {
-  font-size: 0.95rem;
-  line-height: 1.6;
+  #theme-toggle {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
 }
