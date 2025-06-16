@@ -1,18 +1,30 @@
 document.getElementById('theme-toggle').addEventListener('click', function () {
-  document.body.classList.toggle('dark-mode');
+  const body = document.body;
+  const themeToggle = this;
+  
+  body.classList.toggle('dark-mode');
 
   // Optional: Save theme preference to local storage
-  if (document.body.classList.contains('dark-mode')) {
+  if (body.classList.contains('dark-mode')) {
+    themeToggle.textContent = 'Light Mode';
     localStorage.setItem('theme', 'dark');
   } else {
+    themeToggle.textContent = 'Dark Mode';
     localStorage.setItem('theme', 'light');
   }
 });
 
 // Optional: Apply theme on page load based on local storage
 document.addEventListener('DOMContentLoaded', () => {
+  const body = document.body;
+  const themeToggle = document.getElementById('them-toggle')
+
   if (localStorage.getItem('theme') === 'dark') {
-    document.body.classList.add('dark-mode');
+    body.classList.add('dark-mode');
+    themeToggle.textContent = 'Light Mode';
+  } else {
+    body.classList.remove('dark-mode');
+    themeToggle.textContent = 'Dark Mode'
   }
 });
 
