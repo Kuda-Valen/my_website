@@ -90,8 +90,6 @@ header {
   /* Removed flex-wrap: wrap; as it's not needed for this simple horizontal layout */
 }
 
-/* Removed .topnav .logo styling as the element is gone */
-
 .topnav #navLinks {
   display: flex; /* Ensures links are horizontal */
   gap: 1rem; /* Space between links */
