@@ -26,8 +26,7 @@ const phrases = [
   "Robotics Explorer",
   "Lifelong Learner",
   "Python Enthusiast",
-  "Mathematics Lover",
-  "Theá tis Kardiás mou🫀🌍"
+  "Mathematics Lover"
 ];
 
 let phraseIndex = 0;
